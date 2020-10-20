@@ -271,3 +271,9 @@ print("My critter's name is:", end=" ")
 print(crit.name) # Attempts to set the name to an invalid parameter
 
 input("\n\nPress the enter key to exit.")
+
+
+
+"""
+See critter_caretaker.py to see all topics used together in a single application
+"""
