@@ -194,6 +194,7 @@ When to implement privacy
     When you write a class: 
     Create methods to reduce need for clients to access object attributes 
     Use privacy for attributes and methods that are internal to the operation of objects
+
 When you use an object:
     Minimize the direct reading on an object’s attributes
     Avoid directly altering an objects attributes
@@ -223,14 +224,17 @@ When you use an object:
 #         self.__private_method() # Private method called from within a public method inside the class
 #
 # # main
+# # ----- What do you think might happen if we tried this? ----------
+# # This throws an error because it is private
+# # crit.__private_method()
+# # crit.__mood
+#
+# # Correct usage of private attributes ana methods
 # crit = Critter(name = "Poochie", mood = "happy")
 # crit.talk() # Private attribute 'mood' accessed from inside the class through this public method
 # crit.public_method()
 #
-#
-#
-#
-# input("\n\nPress the enter key to exit.")
+# # input("\n\nPress the enter key to exit.")
 
 
 
@@ -257,7 +261,7 @@ PYTHON GET & SET functions
 #     @name.setter    # Allows the the private name attribute to be changed with some restrictions (no empty strings)
 #     def name(self, new_name): # @.setter allows this method to behave like an attribute but allows acces outside the method
 #         if new_name == "":
-#             print("A critter's name can't be the empty string.")
+#             print("A critter's name can't be an empty string.")
 #         else:
 #             self.__name = new_name
 #             print("Name change successful.")
@@ -272,7 +276,7 @@ PYTHON GET & SET functions
 # crit.talk()
 #
 # print("\nMy critter's name is:", end=" ")
-# print(crit.name) # Notice there are not '()' this property access the method directly to get the return value
+# print(crit.name) # Notice there are not '()' this property access' the method directly to get the return value
 #
 # print("\nAttempting to change my critter's name to Randolph...")
 # crit.name = "Randolph" # calls the setter method directly and enforces any limitations set
@@ -284,7 +288,7 @@ PYTHON GET & SET functions
 # print("My critter's name is:", end=" ")
 # print(crit.name) # Attempts to set the name to an invalid parameter`
 #
-# input("\n\nPress the enter key to exit.")
+# # input("\n\nPress the enter key to exit.")
 
 
 
