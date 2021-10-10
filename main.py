@@ -1,4 +1,4 @@
-# This is a sample Python script Based on CH.3 material
+# This is a sample Python script Based on CH.8 material
 # ASCII text generated with http://www.network-science.de/ascii/
 # Donte Jones jones_donte@dublinschools.net
 # IT Academy @ Emerald Campus
@@ -20,21 +20,25 @@ Software Objects allow you to model software objects around real world objects
 Creating objects starts with creating CLasses 
 """
 
-# Simple Critter
-# Demonstrates a basic class and object
-
-class Critter(object): # Creates the class object
-    """A virtual pet""" # Doc string - *Optional
-    def talk(self): # Class method
-                    # 'self' parameter is required it represents the particular instance of the object
-        print("Hi.  I'm an instance of class Critter.")
-
-# main
-crit = Critter() # Creates an instance object (instantiates) from the class Critter named 'crit'
-crit.talk() # Every Class object inherits methods defined by the class
-            # Class methods are accessed through the dot notation
-
-input("\n\nPress the enter key to exit.")
+# # Simple Critter
+# # Demonstrates a basic class and object
+#
+# class Critter: # Creates the class object
+#     """A virtual pet""" # Doc string - *Optional
+#     def talk(self): # Class method
+#                     # 'self' parameter is required it represents the particular instance of the object
+#         print("Hi.  I'm an instance of class Critter.")
+#
+# # main
+# crit = Critter() # Creates an instance object (instantiates) from the class Critter named 'crit'
+# crit.talk() # Every Class object inherits methods defined by the class
+#             # Class methods are accessed through the dot notation
+#
+# # We can also access class methods and attributes through calling the Class with an instance as the argument
+# # for example:
+# Critter.talk(crit)
+#
+# # input("\n\nPress the enter key to exit.")
 
 
 
@@ -45,11 +49,11 @@ CONSTRUCTORS
 Constructors are special methods of a class used to setup initial values of an object
 This method is called automatically after an object is created
 """
-# # Example 1
-# # Constructor Critter
-# # Demonstrates constructors
+## Example 1
+## Constructor Critter
+## Demonstrates constructors
 #
-# class Critter(object): # Class definition
+# class Critter: # Class definition
 #     """A virtual pet"""  # Doc string
 #     def __init__(self):  # Builtin method recognized by Python and run on object creation
 #         print("A new critter has been born!")
@@ -64,55 +68,60 @@ This method is called automatically after an object is created
 # crit1.talk()
 # crit2.talk()
 #
-# input("\n\nPress the enter key to exit.")
+# #input("\n\nPress the enter key to exit.")
 
 
 """
 Here we are creating Objects that have class attributes (variables) and class methods (functions) 
 """
-
-
-# # Example 2
-# # Attribute Critter
-# # Demonstrates creating and accessing object attributes
 #
-# class Critter(object):
+#
+# Example 2
+# Attribute Critter
+# Demonstrates creating and accessing object attributes
+
+# class Critter:
 #     """A virtual pet"""
 #     def __init__(self, name):
 #         print("A new critter has been born!")
 #         self.name = name
 #
 #     def __str__(self):                      # Added a String method using builtin Python function
-#         rep = "Critter object\n"            # Function returns a specified string when the object
-#         rep += "name: " + self.name + "\n"  # is printed
-#         return rep
+#         reply = "Critter object\n"            # Function returns a specified string when the object
+#         reply += "name: " + self.name + "\n"  # is printed
+#         return reply
 #
 #     def talk(self):
 #         print("Hi.  I'm", self.name, "\n")
 #
 #
-#
-#
-# class MysteryCritter(object):
+# class MysteryCritter:
 #     """A virtual pet of some type"""
 #     def __init__(self, name):
 #         print("A new mysterious critter has been born!")
 #         self.name = name
-#
 #
 #     def talk(self):
 #         print("Hi. I'm,", self.name, "\n")
 #
 #
 # # main
-# crit1 = Critter("Poochie")
-# crit1.talk()
+# crit1 = Critter("Gizmo") # Created a critter
+# crit1.talk() # accesed this critters talk method
 #
-# crit2 = Critter("Randolph")
+# # Utilizing the string method, comment the method out
+# # and rerun the script to see what happens without it
+# print(crit1)
+#
+#
+# crit2 = Critter("Marge")
 # crit2.talk()
 #
-# crit3 = MysteryCritter("Chad")
+# crit3 = MysteryCritter("Stripe") # Creating a Mystery Critter instance
 # crit3.talk()
+#
+# # print(crit3)
+# # print(crit2)
 #
 # print("Printing crit1:")
 # print(crit1)
@@ -121,9 +130,9 @@ Here we are creating Objects that have class attributes (variables) and class me
 # print(crit1.name)  # Directly accessing variables of the object
 #
 # print("\nPrinting crit3:")
-# print(crit3)
 #
-# input("\n\nPress the enter key to exit.")
+#
+# # input("\n\nPress the enter key to exit.")
 
 
 
@@ -141,20 +150,23 @@ many houses are built from the plans.
 # # Classy Critter
 # # Demonstrates class attributes and static methods
 #
-# class Critter(object):
+# class Critter:
 #     """A virtual pet"""
 #     total = 0       # Class attribute *(Assigned outside of all class methods)
 #                     # Exists even before any objects are created
 #
-#     @staticmethod   # Method decorator, Method exists for the class NOT for objects
-#     def status():   # Notice 'self' is not a parameter here
+#     @staticmethod   # Method decorator, Method exists for the entire class NOT for instance objects
+#
+#     def status():
+#         # Notice 'self' is not a parameter here
+#         # class attributes are NOT invoked through objects, Example below:
 #         print("\nThe total number of critters is", Critter.total)
-#                                                                     # class attributes are NOT invoked through objects
+#
 #     def __init__(self, name):  # Constructor Method
 #         print("A critter has been born!")
 #         self.name = name
 #         Critter.total += 1 # Class attribute is incremented each time a critter is created
-#                            # Remember the __init__ method is called automatically with object creation
+#                            # Remember the __init__ method is called automatically with object creation (instantiation)
 #
 # # main
 # print("Accessing the class attribute Critter.total:", end=" ")
@@ -193,7 +205,7 @@ When you use an object:
 # # Private Critter
 # # Demonstrates private variables and methods
 #
-# class Critter(object):
+# class Critter:
 #     """A virtual pet"""
 #     def __init__(self, name, mood): # Constructor
 #         print("A new critter has been born!")
@@ -217,6 +229,8 @@ When you use an object:
 # crit.public_method()
 #
 #
+#
+#
 # input("\n\nPress the enter key to exit.")
 
 
@@ -227,10 +241,10 @@ PYTHON GET & SET functions
 
 
 
-# Property Critter
-# Demonstrates properties
-
-# class Critter(object):
+# # Property Critter
+# # Demonstrates properties
+#
+# class Critter:
 #     """A virtual pet"""
 #
 #     def __init__(self, name):
@@ -254,6 +268,7 @@ PYTHON GET & SET functions
 #
 #
 # # main
+#
 # crit = Critter("Poochie")
 # crit.talk()
 #
@@ -276,4 +291,5 @@ PYTHON GET & SET functions
 
 """
 See critter_caretaker.py to see all topics used together in a single application
+*This is the chapter program for the week 
 """
