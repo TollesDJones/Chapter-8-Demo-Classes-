@@ -156,7 +156,6 @@ many houses are built from the plans.
 #                     # Exists even before any objects are created
 #
 #     @staticmethod   # Method decorator, Method exists for the entire class NOT for instance objects
-#
 #     def status():
 #         # Notice 'self' is not a parameter here
 #         # class attributes are NOT invoked through objects, Example below:
