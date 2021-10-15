@@ -49,9 +49,9 @@ CONSTRUCTORS
 Constructors are special methods of a class used to setup initial values of an object
 This method is called automatically after an object is created
 """
-## Example 1
-## Constructor Critter
-## Demonstrates constructors
+# # Example 1
+# # Constructor Critter
+# # Demonstrates constructors
 #
 # class Critter: # Class definition
 #     """A virtual pet"""  # Doc string
@@ -74,12 +74,12 @@ This method is called automatically after an object is created
 """
 Here we are creating Objects that have class attributes (variables) and class methods (functions) 
 """
-#
-#
-# Example 2
-# Attribute Critter
-# Demonstrates creating and accessing object attributes
 
+
+# # Example 2
+# # Attribute Critter
+# # Demonstrates creating and accessing object attributes
+#
 # class Critter:
 #     """A virtual pet"""
 #     def __init__(self, name):
@@ -112,27 +112,27 @@ Here we are creating Objects that have class attributes (variables) and class me
 # # Utilizing the string method, comment the method out
 # # and rerun the script to see what happens without it
 # print(crit1)
-#
-#
-# crit2 = Critter("Marge")
-# crit2.talk()
-#
+# #
+# #
+# # crit2 = Critter("Marge")
+# # crit2.talk()
+# #
 # crit3 = MysteryCritter("Stripe") # Creating a Mystery Critter instance
 # crit3.talk()
-#
-# # print(crit3)
-# # print(crit2)
-#
-# print("Printing crit1:")
-# print(crit1)
-#
+# #
+# ##print(crit3)
+# # # print(crit2)
+# #
+# # print("Printing crit1:")
+# # print(crit1)
+# #
 # print("Directly accessing crit1.name:")
 # print(crit1.name)  # Directly accessing variables of the object
 #
 # print("\nPrinting crit3:")
-#
-#
-# # input("\n\nPress the enter key to exit.")
+
+
+# input("\n\nPress the enter key to exit.")
 
 
 
@@ -202,9 +202,9 @@ When you use an object:
 
 """
 
-# # Private Critter
-# # Demonstrates private variables and methods
-#
+# Private Critter
+# Demonstrates private variables and methods
+
 # class Critter:
 #     """A virtual pet"""
 #     def __init__(self, name, mood): # Constructor
@@ -229,8 +229,8 @@ When you use an object:
 # # crit.__private_method()
 # # crit.__mood
 #
-# # Correct usage of private attributes ana methods
-# crit = Critter(name = "Poochie", mood = "happy")
+# # Correct usage of private attributes and methods
+# crit = Critter(name = "Stripe", mood = "happy")
 # crit.talk() # Private attribute 'mood' accessed from inside the class through this public method
 # crit.public_method()
 #
@@ -244,51 +244,51 @@ PYTHON GET & SET functions
 
 
 
-# # Property Critter
-# # Demonstrates properties
-#
-# class Critter:
-#     """A virtual pet"""
-#
-#     def __init__(self, name):
-#         print("A new critter has been born!")
-#         self.__name = name
-#
-#     @property            # Allows indirect access to the attribute
-#     def name(self):      # attribute @property decorator makes this method behave like a variable/ attribute
-#         return self.__name
-#
-#     @name.setter    # Allows the the private name attribute to be changed with some restrictions (no empty strings)
-#     def name(self, new_name): # @.setter allows this method to behave like an attribute but allows acces outside the method
-#         if new_name == "":
-#             print("A critter's name can't be an empty string.")
-#         else:
-#             self.__name = new_name
-#             print("Name change successful.")
-#
-#     def talk(self):
-#         print("\nHi, I'm", self.name)
-#
-#
-# # main
-#
-# crit = Critter("Poochie")
-# crit.talk()
-#
-# print("\nMy critter's name is:", end=" ")
-# print(crit.name) # Notice there are not '()' this property access' the method directly to get the return value
-#
-# print("\nAttempting to change my critter's name to Randolph...")
-# crit.name = "Randolph" # calls the setter method directly and enforces any limitations set
-# print("My critter's name is:", end=" ")
-# print(crit.name)
-#
-# print("\nAttempting to change my critter's name to the empty string...")
-# crit.name = ""
-# print("My critter's name is:", end=" ")
-# print(crit.name) # Attempts to set the name to an invalid parameter`
-#
-# # input("\n\nPress the enter key to exit.")
+# Property Critter
+# Demonstrates properties
+
+class Critter:
+    """A virtual pet"""
+
+    def __init__(self, name):
+        print("A new critter has been born!")
+        self.__name = name
+
+    @property            # Allows indirect access to the attribute
+    def name(self):      # attribute @property decorator makes this method behave like a variable/ attribute
+        return self.__name
+
+    @name.setter    # Allows the the private name attribute to be changed with some restrictions (no empty strings)
+    def name(self, new_name): # @.setter allows this method to behave like an attribute but allows acces outside the method
+        if new_name == "":
+            print("A critter's name can't be an empty string.")
+        else:
+            self.__name = new_name
+            print("Name change successful.")
+
+    def talk(self):
+        print("\nHi, I'm", self.name)
+
+
+# main
+
+crit = Critter("Poochie")
+crit.talk()
+
+print("\nMy critter's name is:", end=" ")
+print(crit.name) # Notice there are not '()' this property access' the method directly to get the return value
+
+print("\nAttempting to change my critter's name to Randolph...")
+crit.name = "Randolph" # calls the setter method directly and enforces any limitations set
+print("My critter's name is:", end=" ")
+print(crit.name)
+
+print("\nAttempting to change my critter's name to the empty string...")
+crit.name = ""
+print("My critter's name is:", end=" ")
+print(crit.name) # Attempts to set the name to an invalid parameter`
+
+# input("\n\nPress the enter key to exit.")
 
 
 
